@@ -15,7 +15,6 @@ services:
     name: plausible
     env: docker
     dockerfilePath: ./plausible-analytics/Dockerfile
-    dockerCommand: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run"
     envVars:
       - key: BASE_URL
         value: https://plausible.cryptr.co

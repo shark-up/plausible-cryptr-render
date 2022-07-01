@@ -11,6 +11,10 @@ services:
     dockerfilePath: ./clickhouse-server/Dockerfile
     region: frankfurt
     plan: starter
+    disk:
+      name: data
+      mountPath: /var/lib/clickhouse
+      sizeGB: 1
   - type: web
     name: plausible
     env: docker

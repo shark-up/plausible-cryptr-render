@@ -5,7 +5,7 @@ services:
   #   dockerfilePath: ./docker-smtp/Dockerfile
   #   region: frankfurt
   #   plan: starter
-  - type: pserv
+  - type: web
     name: plausible_events_db
     env: docker
     dockerfilePath: ./clickhouse-server/Dockerfile

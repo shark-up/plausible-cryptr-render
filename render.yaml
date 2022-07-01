@@ -10,15 +10,16 @@ services:
     env: docker
     dockerfilePath: ./clickhouse-server/Dockerfile
     region: frankfurt
-    plan: starter
+    plan: Starter Plus
     disk:
       name: data
       mountPath: /var/lib/clickhouse
       sizeGB: 1
   - type: web
-    name: plausible
+    name: cryptr-plausible
     env: docker
     repo: https://github.com/plausible/analytics.git
+    plan: Starter Plus
     envVars:
       - key: BASE_URL
         value: https://plausible.cryptr.co
@@ -38,11 +39,14 @@ services:
           type: pserv
           property: connectionString
       - key: CLICKHOUSE_DATABASE_URL
-        sync: false
+        fromService:
+          name: plausible_events_db
+          type: pserv
+          property: host
 databases:
   - name: plausible_db
     databaseName: plausible_db
     ipAllowList: []
     postgresMajorVersion: 12
-    plan: starter
+    plan: Starter Plus
     region: frankfurt

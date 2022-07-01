@@ -18,11 +18,11 @@ services:
     dockerCommand: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run"
     envVars:
       - key: BASE_URL
-        sync: https://plausible.cryptr.co
+        value: https://plausible.cryptr.co
       - key: ADMIN_USER_NAME
-        sync: admin
+        value: admin
       - key: ADMIN_USER_EMAIL
-        sync: thibaud@cryptr.co
+        value: thibaud@cryptr.co
       - key: ADMIN_USER_PWD
         sync: false
       - key: SECRET_KEY_BASE

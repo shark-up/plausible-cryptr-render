@@ -38,10 +38,7 @@ services:
           type: pserv
           property: connectionString
       - key: CLICKHOUSE_DATABASE_URL
-        fromService:
-          name: plausible_events_db
-          type: pserv
-          property: connectionString
+        sync: false
 databases:
   - name: plausible_db
     databaseName: plausible_db

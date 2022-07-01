@@ -33,15 +33,15 @@ services:
           type: pserv
           property: connectionString
       - key: MAIL_URL
-        fromDatabase:
+        fromService:
           name: mail
           type: pserv
-          property: host
+          property: connectionString
       - key: EVENTS_URL
-        fromDatabase:
+        fromService:
           name: plausible_events_db
           type: pserv
-          property: host
+          property: connectionString
 databases:
   - name: plausible_db
     databaseName: plausible_db

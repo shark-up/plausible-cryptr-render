@@ -38,7 +38,7 @@ services:
         fromService:
           name: plausible_events_db
           type: pserv
-          property: host
+          property: connectionString
 databases:
   - name: plausible_db
     databaseName: plausible_db

@@ -1,10 +1,10 @@
 services:
-  - type: pserv
-    name: mail
-    env: docker
-    dockerfilePath: ./docker-smtp/Dockerfile
-    region: frankfurt
-    plan: starter
+  # - type: pserv
+  #   name: mail
+  #   env: docker
+  #   dockerfilePath: ./docker-smtp/Dockerfile
+  #   region: frankfurt
+  #   plan: starter
   - type: pserv
     name: plausible_events_db
     env: docker
@@ -23,6 +23,8 @@ services:
         value: admin
       - key: ADMIN_USER_EMAIL
         value: thibaud@cryptr.co
+      - key: POSTMARK_API_KEY
+        sync: false
       - key: ADMIN_USER_PWD
         sync: false
       - key: SECRET_KEY_BASE
@@ -32,12 +34,7 @@ services:
           name: plausible_db
           type: pserv
           property: connectionString
-      - key: MAIL_URL
-        fromService:
-          name: mail
-          type: pserv
-          property: host
-      - key: EVENTS_URL
+      - key: CLICKHOUSE_DATABASE_URL
         fromService:
           name: plausible_events_db
           type: pserv

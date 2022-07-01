@@ -36,12 +36,12 @@ services:
         fromService:
           name: mail
           type: pserv
-          property: connectionString
+          property: host
       - key: EVENTS_URL
         fromService:
           name: plausible_events_db
           type: pserv
-          property: connectionString
+          property: host
 databases:
   - name: plausible_db
     databaseName: plausible_db
